@@ -12,9 +12,12 @@ def afficher_labyrinthe(Labyrinthe, colonnes, lignes):
 
     plt.clf() # Efface le dessin
    
+   
     nx.draw(Labyrinthe, pos, with_labels=True) 
+   
     edge_labels = nx.get_edge_attributes(Labyrinthe, 'weight')
-    nx.draw_networkx_edge_labels(Labyrinthe, pos, edge_labels=edge_labels)
+   
+    nx.draw_networkx_edge_labels(Labyrinthe, pos, edge_labels)
 
     plt.show()
 
@@ -25,10 +28,15 @@ if __name__ == "__main__":
      (9, 5, 3), (9, 8, 4), (9, 10, 5), (10, 6, 6), (10, 9, 7), (10, 11, 8), (11, 10, 9)]
     colonnes = 4
     lignes = 3
+    
     nb_sommets = colonnes * lignes
+    
     noeuds = list(range(nb_sommets))
+    
     Labyrinthe = nx.Graph()
+    
     Labyrinthe.add_nodes_from(noeuds)
+    
     Labyrinthe.add_weighted_edges_from(aretes)
 
     # Lance le test de la fonction afficher_labyrinthe()
